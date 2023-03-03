@@ -8,9 +8,9 @@ import GamePage from './pages/GamePage';
 import JoinPage from './pages/JoinPage';
 import StartPage from './pages/StartPage';
 
-function GamePageWithGameId({ gameId }) {
+function GamePageWithGameId({ gameId, nickName }) {
   return (
-    <GamePage gameId={gameId} />
+    <GamePage gameId={gameId} nickName={nickName} />
   );
 }
 
@@ -22,7 +22,7 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="/join" element={<JoinPage />} />
       <Route path="/start" element={<StartPage />} />
-      <Route path="/hitreplyall/:gameId" element={<GamePageWithGameId />} />
+      <Route path="/hitreplyall/:gameId/:nickName" element={<GamePageWithGameId />} />
       <Route path="*" element={<main style={{padding: "1rem"}}>
         <p>The page you've searched for doesn't exist!</p>
         </main>

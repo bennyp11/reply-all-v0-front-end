@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 function useGameNavigation() {
   const navigate = useNavigate();
 
-  function handleEnterGameClick(gameId) {
-    navigate(`/hitreplyall/${gameId}`);
+  function handleEnterGameClick(gameId, nickName) {
+    const encodedNickName = encodeURIComponent(nickName);
+    console.log(encodedNickName);
+    navigate(`/hitreplyall/${gameId}/${encodedNickName}`);
   }
 
   return { handleEnterGameClick };
@@ -78,7 +80,7 @@ function StartPage() {
           <div>
           <p>{nickName}, your game code is: {`${gameId}`}</p>
           <button onClick={handleCopyClick}>Copy Game Code</button>
-          <button onClick={() => handleEnterGameClick(gameId)}>Enter Game</button>
+          <button onClick={() => handleEnterGameClick(gameId, nickName)}>Enter Game</button>
           </div>
         )}
     </div>
