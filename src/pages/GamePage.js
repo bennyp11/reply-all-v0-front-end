@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-//NEED TO FIX THE FETCH REQUESTS SO ONLY ONE IS MADE PER INIT
 
 function GamePage() {
   const location = useLocation();
   const [nickNames, setNickNames] = useState([]);
 
   useEffect(() => {
+    const ws = new WebSocket('ws://localhost:8082');
+
+    ws.onopen = () => {
+      console.log('WebSocket connection established');
+    };
+
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      console.log('Received WebSocket message:', event.data);
+      setNickNames(data.nickNames);
+    };
+
     // Make GET request to API
     fetch(`http://localhost:3005${location.pathname}`)
       .then((response) => response.json())
@@ -16,6 +27,10 @@ function GamePage() {
         setNickNames(data.nickNames);
       })
       .catch((error) => console.error(error));
+
+    return () => {
+      ws.close();
+    };
   }, [location.pathname]);
 
   return (
