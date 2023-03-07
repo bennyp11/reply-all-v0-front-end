@@ -1,9 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function useGameNavigation() {
+  const navigate = useNavigate();
+
+  function handleEnterGameClick(gameId, nickName) {
+    const encodedNickName = encodeURIComponent(nickName);
+    console.log(encodedNickName);
+    navigate(`/hitreplyall/${gameId}/${encodedNickName}`);
+  }
+
+  return { handleEnterGameClick };
+}
 
 function JoinPage() {
   const [gameId, setGameId] = useState('');
   const [nickName, setNickName] = useState('');
   const [responseMessage, setResponseMessage] = useState('');
+  const { handleEnterGameClick } = useGameNavigation();
+
 
   const handleGameIdChange = (event) => {
     setGameId(event.target.value);
@@ -29,6 +44,8 @@ function JoinPage() {
         setResponseMessage(data.message);
       })
       .catch((error) => console.error(error));
+
+      handleEnterGameClick(gameId, nickName);
   };
 
   return (
