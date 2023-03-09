@@ -28,6 +28,7 @@ function GamePage() {
         data.dealtCards.forEach(item => {
           console.log(item);
         });
+        setDealtCards(data.dealtCards);
         setNickNames(data.nickNames);
       })
       .catch((error) => console.error(error));
