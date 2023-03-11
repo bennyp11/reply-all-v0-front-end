@@ -19,11 +19,11 @@ function GamePage() {
         .then((data) => {
           console.log(`Retrieving nickNames for game ID ${location.pathname}`);
           console.log(`Nicknames: ${JSON.stringify(data.nickNames)}`);
+          setNickNames(data.nickNames);
           //data.dealtCards.forEach(item => {
             //console.log(item);
           //});
-          setDealtCards(data.dealtCards);
-          setNickNames(data.nickNames);
+          setDealtCards(data.cardsToSend);
           setLoading(false);
         })
         .catch((error) => console.error(error));
