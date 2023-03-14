@@ -43,7 +43,7 @@ function StartPage() {
   }
 
   const handleCopyClick = () => {
-    const link = `www.localhost:3000/hitreplyall/${gameId}`;
+    const link = `${gameId}`;
     navigator.clipboard.writeText(link);
     alert(`Link copied to clipboard: ${link}`);
   };
@@ -79,6 +79,7 @@ function StartPage() {
         {nickNameSent && (
           <div>
           <p>{nickName}, your game code is: {`${gameId}`}</p>
+          <p>Send <a href="localhost:3000/join">the join link</a> to your friends, along with the game code, so they can join in on the fun!</p>
           <button onClick={handleCopyClick}>Copy Game Code</button>
           <button onClick={() => handleEnterGameClick(gameId, nickName)}>Enter Game</button>
           </div>
