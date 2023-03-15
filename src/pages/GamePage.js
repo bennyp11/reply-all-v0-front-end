@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Nav from '../components/Nav/Nav';
 
 function GamePage() {
   const location = useLocation();
@@ -45,6 +46,9 @@ function GamePage() {
   }
 
   return (
+    <div>
+      <Nav />
+    </div>
     <div>
       <h1>Welcome to the game!</h1>
       <p>Nicknames: {JSON.stringify(nickNames)}</p>
