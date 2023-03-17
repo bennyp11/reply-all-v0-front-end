@@ -8,11 +8,13 @@ import {
   List,
   ListItem,
   ListItemText,
+  useTheme,
 } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 
 const Nav = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const theme = useTheme();
 
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -29,7 +31,13 @@ const Nav = () => {
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton color="inherit" aria-label="menu" edge="start" onClick={handleDrawerToggle}>
+          <IconButton
+            color="error"
+            aria-label="menu"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ marginRight: theme.spacing(2) }}
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
