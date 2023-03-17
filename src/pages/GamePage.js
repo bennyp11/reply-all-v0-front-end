@@ -46,14 +46,14 @@ function GamePage() {
   }
 
   return (
-    <div>
-      <Nav />
-    </div>
+    <>
+    <Nav/>
     <div>
       <h1>Welcome to the game!</h1>
       <p>Nicknames: {JSON.stringify(nickNames)}</p>
       <p>Cards: {JSON.stringify(dealtCards)}</p>
     </div>
+    </>
   );
 }
 
