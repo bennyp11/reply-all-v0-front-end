@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Nav from '../components/Nav/Nav';
+import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 
 function GamePage() {
   const location = useLocation();
@@ -21,9 +22,6 @@ function GamePage() {
           console.log(`Retrieving nickNames for game ID ${location.pathname}`);
           console.log(`Nicknames: ${JSON.stringify(data.nickNames)}`);
           setNickNames(data.nickNames);
-          //data.dealtCards.forEach(item => {
-            //console.log(item);
-          //});
           setDealtCards(data.cardsToSend);
           setLoading(false);
         })
@@ -47,12 +45,27 @@ function GamePage() {
 
   return (
     <>
-    <Nav/>
-    <div>
-      <h1>Welcome to the game!</h1>
-      <p>Nicknames: {JSON.stringify(nickNames)}</p>
-      <p>Cards: {JSON.stringify(dealtCards)}</p>
-    </div>
+      <Nav />
+      <div>
+        <h1>Welcome to the game!</h1>
+        <p>Nicknames: {JSON.stringify(nickNames)}</p>
+        <Grid container spacing={2}>
+          {dealtCards.map((card) => (
+            <Grid item xs={12} sm={6} md={4} key={card.RelationalID}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h5" component="h2">
+                    {card.CardType}
+                  </Typography>
+                  <Typography color="textSecondary">
+                    {card.Text}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     </>
   );
 }
