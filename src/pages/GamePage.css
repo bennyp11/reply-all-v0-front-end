@@ -1,0 +1,74 @@
+@media only screen and (min-width: 600px) {
+    .MuiGrid-grid-xs-12 {
+      flex-grow: 1;
+      max-width: 100%;
+    }
+  }
+  
+  @media only screen and (min-width: 960px) {
+    .MuiGrid-grid-md-3 {
+      flex-basis: 25%;
+      max-width: 25%;
+    }
+  }
+  
+  @media only screen and (max-width: 959px) {
+    .MuiGrid-grid-md-4 {
+      flex-basis: calc(33.33% - 20px);
+      max-width: calc(33.33% - 20px);
+      padding-top: calc(1.5 * (calc(33.33% - 20px)));
+    }
+  }
+  
+  @media only screen and (max-width: 599px) {
+    .MuiGrid-grid-md-4 {
+      flex-basis: calc(50% - 20px);
+      max-width: calc(50% - 20px);
+      padding-top: calc(1.5 * (calc(50% - 20px)));
+    }
+  }
+  
+  .Card {
+    position: relative;
+    width: 360px;
+    height: 400px;
+  }
+
+  .TopHand {
+    border: 2px solid red;
+  }
+
+  .BottomHand {
+    border: 3px solid green;
+  }
+
+  .WholeRow {
+    border: 5px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .Card .CardContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .Card .CardContent h2 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .Card .CardContent p {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
