@@ -14,39 +14,47 @@
   
   @media only screen and (max-width: 959px) {
     .MuiGrid-grid-md-4 {
-      flex-basis: calc(33.33% - 20px);
-      max-width: calc(33.33% - 20px);
-      padding-top: calc(1.5 * (calc(33.33% - 20px)));
+      flex-basis: calc(50% - 12px);
+      max-width: calc(50% - 12px);
+      padding-top: calc(1.5 * (calc(50% - 12px)));
+      margin-bottom: 12px;
     }
   }
   
   @media only screen and (max-width: 599px) {
     .MuiGrid-grid-md-4 {
-      flex-basis: calc(50% - 20px);
-      max-width: calc(50% - 20px);
-      padding-top: calc(1.5 * (calc(50% - 20px)));
+      flex-basis: calc(100% - 12px);
+      max-width: calc(100% - 12px);
+      padding-top: calc(1.5 * (calc(100% - 12px)));
+      margin-bottom: 12px;
     }
   }
   
   .Card {
     position: relative;
-    width: 360px;
-    height: 400px;
+    width: 200px;
+    height: 100%;
+    border: 2px solid black;
   }
 
-  .TopHand {
+  .HandContainer {
+    flex-wrap: nowrap;
     border: 2px solid red;
+    width: 100%;
   }
-
-  .BottomHand {
-    border: 3px solid green;
+  
+  .Hand {
+    flex-wrap: wrap;
   }
-
+  
   .WholeRow {
     border: 5px solid red;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
   
   .Card .CardContent {
