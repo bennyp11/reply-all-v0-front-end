@@ -49,7 +49,7 @@ function GamePage() {
     <Nav />
     <div>
       <h1>Welcome to the game!</h1>
-      <p>Nicknames: {JSON.stringify(nickNames[0].nickName)}</p>
+      <p>Nicknames: {JSON.stringify(nickNames)}</p>
       <Grid container spacing={2} justify="center">
         <Grid className="HandContainer" container item spacing={2} xs={12} md={9} lg={7} justify="center">
           {dealtCards.map((card) => (

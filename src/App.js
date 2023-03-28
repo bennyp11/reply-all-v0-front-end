@@ -12,7 +12,7 @@ function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Select an option to play Reply All!
           </p>
           <Link className="App-link" to="/start">
             Start a Game
