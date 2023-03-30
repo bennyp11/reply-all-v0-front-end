@@ -44,37 +44,52 @@ function GamePage() {
     return <p>Loading...</p>;
   }
 
-  return (
-    <>
-      <Nav />
-      <div>
+  // Inside the return statement of the GamePage component
+return (
+  <>
+    <Nav />
+    <div>
+      {nickNames.length < 3 && ( // Display the banner message when there are less than 3 nicknames
         <div className="Banner">
           <Typography variant="h5" component="h2">
-            Nicknames: {nickNames.map(nickname => nickname.nickName).join(', ')}
+            You must have 3 players to begin the game!
           </Typography>
         </div>
-        <h1>Welcome to the game!</h1>
-        <Grid container spacing={2} justify="center">
-          <Grid className="HandContainer" container item spacing={2} xs={12} md={9} lg={7} justify="center">
-            {dealtCards.map((card) => (
-              <Grid item xs={12} sm={6} md={2} key={card.RelationalID}>
-                <Card className="Card Hand">
-                  <CardContent>
-                    <Typography variant="h5" component="h2">
-                      {card.CardType}
-                    </Typography>
-                    <Typography color="textSecondary">
-                      {card.Text}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
+      )}
+      <div className="Banner">
+        <Typography variant="h5" component="h2">
+          Nicknames: {nickNames.map((nickname) => nickname.nickName).join(", ")}
+        </Typography>
       </div>
-    </>
-  );
+      <h1>Welcome to the game!</h1>
+      <Grid container spacing={2} justify="center">
+        <Grid
+          className="HandContainer"
+          container
+          item
+          spacing={2}
+          xs={12}
+          md={9}
+          lg={7}
+          justify="center"
+        >
+          {dealtCards.map((card) => (
+            <Grid item xs={12} sm={6} md={2} key={card.RelationalID}>
+              <Card className="Card Hand">
+                <CardContent>
+                  <Typography variant="h5" component="h2">
+                    {card.CardType}
+                  </Typography>
+                  <Typography color="textSecondary">{card.Text}</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+    </div>
+  </>
+);
 }
 
 export default GamePage;
