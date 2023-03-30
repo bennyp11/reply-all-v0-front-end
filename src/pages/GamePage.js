@@ -46,31 +46,32 @@ function GamePage() {
 
   return (
     <>
-    <Nav />
-    <div>
-      <h1>Welcome to the game!</h1>
-      <p>Nicknames: {JSON.stringify(nickNames)}</p>
-      <Grid container spacing={2} justify="center">
-        <Grid className="HandContainer" container item spacing={2} xs={12} md={9} lg={7} justify="center">
-          {dealtCards.map((card) => (
-            <Grid item xs={12} sm={6} md={2} key={card.RelationalID}>
-              <Card className="Card Hand">
-                <CardContent>
-                  <Typography variant="h5" component="h2">
-                    {card.CardType}
-                  </Typography>
-                  <Typography color="textSecondary">
-                    {card.Text}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+      <Nav />
+      <div>
+        <h1>Welcome to the game!</h1>
+        <p>Nicknames: {nickNames.map(nickname => nickname.nickName).join(', ')}</p>
+        <Grid container spacing={2} justify="center">
+          <Grid className="HandContainer" container item spacing={2} xs={12} md={9} lg={7} justify="center">
+            {dealtCards.map((card) => (
+              <Grid item xs={12} sm={6} md={2} key={card.RelationalID}>
+                <Card className="Card Hand">
+                  <CardContent>
+                    <Typography variant="h5" component="h2">
+                      {card.CardType}
+                    </Typography>
+                    <Typography color="textSecondary">
+                      {card.Text}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-      </Grid>
-    </div>
-  </>
+      </div>
+    </>
   );
+  
   
 }
 
