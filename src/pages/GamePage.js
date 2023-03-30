@@ -48,8 +48,12 @@ function GamePage() {
     <>
       <Nav />
       <div>
+        <div className="Banner">
+          <Typography variant="h5" component="h2">
+            Nicknames: {nickNames.map(nickname => nickname.nickName).join(', ')}
+          </Typography>
+        </div>
         <h1>Welcome to the game!</h1>
-        <p>Nicknames: {nickNames.map(nickname => nickname.nickName).join(', ')}</p>
         <Grid container spacing={2} justify="center">
           <Grid className="HandContainer" container item spacing={2} xs={12} md={9} lg={7} justify="center">
             {dealtCards.map((card) => (
@@ -71,8 +75,7 @@ function GamePage() {
       </div>
     </>
   );
-  
-  
 }
 
 export default GamePage;
+

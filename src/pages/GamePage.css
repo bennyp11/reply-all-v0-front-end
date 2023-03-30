@@ -33,9 +33,10 @@
   .Card {
     position: relative;
     width: 200px;
-    height: 100%;
+    height: 290px;
     border: 2px solid black;
   }
+  
 
   .HandContainer {
     flex-wrap: nowrap;
