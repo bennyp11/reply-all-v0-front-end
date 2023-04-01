@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Nav from '../components/Nav/Nav';
 
 function useGameNavigation() {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ function JoinPage() {
 
   return (
     <div>
+    <Nav />
       <h1>Hello Business Professional!</h1>
       <p>Join a game by entering details below!</p>
       <form onSubmit={handleSubmit}>

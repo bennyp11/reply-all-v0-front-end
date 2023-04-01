@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Nav from '../components/Nav/Nav';
 
 function useGameNavigation() {
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ function StartPage() {
 
   return (
     <div>
+    <Nav />
       <h1>Hello Business Professional!</h1>
       {!nickNameSent && (
         <div>
