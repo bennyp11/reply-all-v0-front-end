@@ -21,9 +21,8 @@ const Nav = () => {
   };
 
   const menuItems = [
-    { id: 1, text: 'Home' },
-    { id: 2, text: 'About' },
-    { id: 3, text: 'Contact' },
+    { id: 1, text: 'Start A New Game' },
+    { id: 2, text: 'Join A Game' },
     // Add more menu items here
   ];
 
