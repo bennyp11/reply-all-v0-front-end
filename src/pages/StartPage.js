@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../components/Nav/Nav';
+import { Container, Grid, TextField, Button, Typography, Box, Link } from '@mui/material';
+import { styled } from '@emotion/styled';
+
 
 function useGameNavigation() {
   const navigate = useNavigate();
@@ -67,26 +70,62 @@ function StartPage() {
   };
 
   return (
-    <div>
-    <Nav />
-      <h1>Hello Business Professional!</h1>
+    <Container>
+      <Grid container justifyContent="center" alignItems="center" spacing={3}>
+      <Grid item xs={12} md={6}>
+        <>
+      <Nav />
+      <Typography variant="h4" component="h1" gutterBottom>
+        Hello Business Professional!
+      </Typography>
       {!nickNameSent && (
-        <div>
-        <p>Enter your nickname: 
-        <input type="text" value={nickName} onChange={handleNickNameChange} />
-        <button onClick={()=>handleEnterNickName(gameId, nickName)}>Submit</button>
-      </p>
-        </div>
+        <Box>
+          <Typography variant="body1" component="p">
+            Enter your nickname:
+          </Typography>
+          <TextField
+            value={nickName}
+            onChange={handleNickNameChange}
+            variant="outlined"
+            size="small"
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => handleEnterNickName(gameId, nickName)}
+          >
+            Submit
+          </Button>
+        </Box>
       )}
-        {nickNameSent && (
-          <div>
-          <p>{nickName}, your game code is: {`${gameId}`}</p>
-          <p>Send <a href="localhost:3000/join">the join link</a> to your friends, along with the game code, so they can join in on the fun!</p>
-          <button onClick={handleCopyClick}>Copy Game Code</button>
-          <button onClick={() => handleEnterGameClick(gameId, nickName)}>Enter Game</button>
-          </div>
-        )}
-    </div>
+      {nickNameSent && (
+        <Box>
+          <Typography variant="body1" component="p">
+            {nickName}, your game code is: {`${gameId}`}
+          </Typography>
+          <Typography variant="body1" component="p">
+            Send{' '}
+            <Link href="localhost:3000/join" underline="hover">
+              the join link
+            </Link>{' '}
+            to your friends, along with the game code, so they can join in on the fun!
+          </Typography>
+          <Button variant="outlined" color="primary" onClick={handleCopyClick}>
+            Copy Game Code
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => handleEnterGameClick(gameId, nickName)}
+          >
+            Enter Game
+          </Button>
+        </Box>
+      )}
+      </>
+    </Grid>
+    </Grid>
+    </Container>
   );
 }
 
